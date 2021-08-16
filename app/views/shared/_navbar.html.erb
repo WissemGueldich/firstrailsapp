@@ -12,7 +12,7 @@
         <li class="nav-item">
         <%= link_to "About US", about_path, class: "nav-link active"%>
         </li>
-       
+       <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown link
@@ -21,8 +21,25 @@
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          </ul>-->
         </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if Current.user%>
+          <li class="nav-item">
+            <span class="navbar-text"><%= Current.user.email %></span>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Logout",logout_path, method: :delete, class: "btn btn-outline-light mx-2" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= button_to "Login", sign_in_path, class: "btn btn-outline-light mx-2" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up",sign_up_path, class: "btn btn-outline-light mx-2" %>
+          </li>
+        <% end %> 
       </ul>
     </div>
   </div>
