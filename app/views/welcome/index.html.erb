@@ -1,7 +1,17 @@
 <div class="d-flex align-items-center justify-content-center">
-<h1>Welcome to my first RoR App!</h1>
+    <h1>Welcome to my first RoR App!</h1>
+    
 </div>
 
-<% if @user %>
-    <h4>Logged in as: <%= @user.name %></h4>
+<% if Current.user %>
+    <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+        <h4>Logged in as: <%= Current.user.name %></h4>
+    </div>
+    <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+        <%= link_to "Create a new post" , new_post_path, class: "btn btn-secondary" %>
+    </div>
+<% else %>
+    <div class="d-flex align-items-center justify-content-center">
+        <h3  >Please Sign In !</h3>
+    </div>
 <% end %>

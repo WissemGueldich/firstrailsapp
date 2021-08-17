@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-  <%= link_to "NavBar", root_path, class: "navbar-brand"%>
+  <%= link_to "RailsBook", root_path, class: "navbar-brand"%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,14 +27,14 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if Current.user%>
           <li class="nav-item">
-            <span class="navbar-text"><%= Current.user.email %></span>
+            <%= link_to Current.user.email,edit_password_path,class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= button_to "Logout",logout_path, method: :delete, class: "btn btn-outline-light mx-2" %>
+            <%= link_to "Logout",logout_path, method: :delete, class: "btn btn-outline-light mx-2" %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= button_to "Login", sign_in_path, class: "btn btn-outline-light mx-2" %>
+            <%= link_to "Login", sign_in_path, class: "btn btn-outline-light mx-2" %>
           </li>
           <li class="nav-item">
             <%= link_to "Sign Up",sign_up_path, class: "btn btn-outline-light mx-2" %>
